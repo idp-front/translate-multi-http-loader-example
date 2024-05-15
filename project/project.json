@@ -1,0 +1,96 @@
+{
+  "name": "project",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "app",
+  "sourceRoot": "project/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:application",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/project",
+        "index": "project/src/index.html",
+        "browser": "project/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "project/tsconfig.app.json",
+        "inlineStyleLanguage": "less",
+        "assets": [
+          "project/src/favicon.ico",
+          "project/src/assets",
+          {
+            "glob": "**/*",
+            "input": "node_modules/@prizm-ui/components/src/styles/fonts",
+            "output": "assets/ui-platform/components/fonts"
+          },
+          {
+            "glob": "**/*",
+            "input": "node_modules/@idp-front/translate-multi-http-loader-example-package/assets",
+            "output": "assets/shared"
+          }
+        ],
+        "styles": [
+          "project/src/styles.less",
+          "node_modules/@prizm-ui/theme/src/styles/styles.less",
+          "node_modules/@prizm-ui/components/src/styles/styles.less",
+          "node_modules/@prizm-ui/icons/src/styles/styles.less",
+          "node_modules/@prizm-ui/components/src/styles/icons/icons.less",
+          "node_modules/@prizm-ui/components/src/styles/icons-16/icons-16.less"
+        ],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "project:build:production"
+        },
+        "development": {
+          "buildTarget": "project:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "project:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "project/jest.config.ts"
+      }
+    }
+  }
+}

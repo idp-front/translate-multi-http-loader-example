@@ -1,0 +1,19 @@
+<div class="header">
+  <prizm-input-layout
+    [label]="'Application.LanguageItems.Header' | translate"
+    [forceClear]="false"
+  >
+    <prizm-input-select
+      [nullContent]="''"
+      [items]="languageItems"
+      [formControl]="languageControl"
+      [identityMatcher]="identityMatcher"
+      [stringify]="stringify"
+    >
+    </prizm-input-select>
+  </prizm-input-layout>
+</div>
+<div class="container">
+  <button prizmButton>{{ 'Application.Button' | translate }}</button>
+  <shared-button />
+</div>

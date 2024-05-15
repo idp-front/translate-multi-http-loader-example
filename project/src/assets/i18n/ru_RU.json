@@ -1,0 +1,10 @@
+{
+  "Application": {
+    "Button": "Основная кнопка",
+    "LanguageItems": {
+      "Header": "Выбрать язык",
+      "Russian": "Русский",
+      "English": "Английский"
+    }
+  }
+}
