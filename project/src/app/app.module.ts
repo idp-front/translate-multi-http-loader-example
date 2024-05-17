@@ -21,11 +21,8 @@ import { AppComponent } from './app.component';
         provide: TranslateLoader,
         useFactory: () =>
           new MultiTranslateHttpLoader([
-            { prefix: `/assets/i18n/`, suffix: '.json' },
-            {
-              prefix: `/assets/shared/i18n/`,
-              suffix: '.json',
-            },
+            `/assets/i18n/`,
+            `/assets/shared/i18n/`,
           ]),
       },
     }),
