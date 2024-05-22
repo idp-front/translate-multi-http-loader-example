@@ -1,10 +1,14 @@
 {
   "Application": {
-    "Button": "Main Button",
-    "LanguageItems": {
-      "Header": "Choose language",
-      "Russian": "Russian",
-      "English": "English"
+    "LanguageSelectorComponent": {
+      "LanguageItems": {
+        "Header": "Choose language",
+        "Russian": "Russian",
+        "English": "English"
+      }
+    },
+    "ButtonComponent": {
+      "Button": "Main Button"
     }
   }
 }

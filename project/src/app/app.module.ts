@@ -1,15 +1,13 @@
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ButtonComponent } from '@idp-front/translate-multi-http-loader-example-package';
+import { ButtonComponent as SharedButtonComponent } from '@idp-front/translate-multi-http-loader-example-package';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import {
-  PrizmButtonComponent,
-  PrizmInputSelectModule,
-} from '@prizm-ui/components';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { MultiTranslateHttpLoader } from '@idp-front/translate-multi-http-loader';
 
 import { AppComponent } from './app.component';
+import { ButtonComponent } from './components/button/button.component';
+import { LanguageSelectorComponent } from './components/language-selector/language-selector.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,11 +24,9 @@ import { AppComponent } from './app.component';
           ]),
       },
     }),
-    PrizmInputSelectModule,
-    FormsModule,
-    ReactiveFormsModule,
-    PrizmButtonComponent,
+    SharedButtonComponent,
     ButtonComponent,
+    LanguageSelectorComponent,
   ],
   bootstrap: [AppComponent],
 })
